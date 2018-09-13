@@ -1,6 +1,8 @@
 package main
 
 import (
+	"google.golang.org/appengine"
+	
 	"fmt"
 	"strings"
 	"net/http"
@@ -9,6 +11,8 @@ import (
 
 func main() {
 
+	appengine.Main()
+	
 	url := "https://fcm.googleapis.com/fcm/send"
 
 	payload := strings.NewReader("{\n \"to\" : \"/topics/Arqui1\",\n  \"notification\" : {\n \"body\" : \"El sensor de humo detecto algo\",\n \"title\" : \"Sensor de humo activado\"\n \"content_available\" : \"true\",\n \"priority\" : \"high\",\n }\n}\n")
